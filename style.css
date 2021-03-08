@@ -1,0 +1,11 @@
+.onClick {
+  color: green;
+}
+.span {
+  color: red;
+}
+
+.isHidden {
+  display: none;
+  /* opacity: 0; */
+}
