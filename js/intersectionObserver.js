@@ -1,5 +1,3 @@
-const items = document.querySelectorAll(".item");
-
 const options = {
   root: document.getElementById("list"),
   rootMargin: "50px",
@@ -14,17 +12,16 @@ function handleObserver(entries, observer) {
     entry.intersectionRatio; // the number for the ratio of the intersectionRect to the boundingClientRect.
     entry.target; // the Element whose intersection with the intersection root changed.
     entry.isIntersecting; // intersecting: true or false
-    console.log(entry.target);
+    // console.log(entry.target);
     if (entry.isIntersecting) {
-      entry.target.style.border = "10px solid green";
-      observer.unobserve(entry.target);
+      entry.target.classList.add("observe");
     } else {
-      entry.target.style.border = "";
+      entry.target.classList.remove("observe");
     }
   });
 }
-const observer = new IntersectionObserver(handleObserver, options);
 
-// const target = document.getElementById("target");
+// const observer = new IntersectionObserver(handleObserver, options);
+// items.forEach((elem) => observer.observe(elem));
 
-items.forEach((elem) => observer.observe(elem));
+export default new IntersectionObserver(handleObserver, options);

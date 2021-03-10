@@ -9,6 +9,8 @@
 
 .form input {
   padding: 20px;
+  color: red;
+
   background-color: transparent;
 
   width: min-content;

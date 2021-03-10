@@ -24,8 +24,8 @@ main {
 
 .postsList {
   width: 75%;
-  height: 650px;
-  overflow: auto;
+  /* height: 650px; */
+  /* overflow: auto; */
   margin: 0 auto;
 
   display: flex;
@@ -42,10 +42,14 @@ main {
   width: 600px;
   height: 600px;
 
-  border: 10px solid wheat;
   margin: 10px;
 
   position: relative;
+  border: 10px solid wheat;
+}
+
+.observe {
+  border: 10px solid green;
 }
 
 .cardInfo {
