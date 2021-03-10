@@ -1,25 +1,44 @@
 const item = document.getElementById("item");
 const modal = document.querySelector(".backDrop");
 
-// console.log(item);
-// item.textContent = "Item";
+const list = document.querySelector(".postsList");
 
-// console.dir(window);
+const form = document.getElementById("form");
 
-const ul = document.querySelector(".postsList");
-// console.log(ul);
-
-ul.addEventListener("click", (e) => {
+form.addEventListener("input", (e) => {
   e.preventDefault();
-  console.log(e);
-  //   console.log("target", e.target);
-  e.target.style.textTransform = "uppercase";
-  e.target.classList.add("onClick");
+  console.log(`ok`);
+  let val = e.target.value;
+  console.log(val);
+  filterWords(val, list, "cardInfo", "text");
+});
 
-  //   console.log("currentTarget", e.currentTarget);
+let inpurValue = " a ";
+
+function filterWords(value, items, wrapperTextClass, textClass) {
+  console.log(`ok`);
+  return [...items.children].map((li) => {
+    return [...li.children].find((div) => {
+      if (div.classList.contains(wrapperTextClass)) {
+        return [...div.children].find((p) => {
+          // console.log(p.textContent);
+          if (p.classList.contains(textClass) && !p.textContent.includes(value))
+            return (li.style.display = "none");
+        });
+      }
+    });
+  });
+}
+
+// filterWords(inpurValue, list, "cardInfo", "text");
+
+list.addEventListener("click", (e) => {
+  e.preventDefault();
+  // e.target.style.textTransform = "uppercase";
+  // e.target.classList.add("onClick");
 
   if (e.target.nodeName === "LI") {
-    console.log(`Li`);
+    // console.log(`Li`);
   }
 
   if (e.target.nodeName === "A") {
@@ -40,12 +59,20 @@ const itemGallery = `
 `;
 
 window.addEventListener("keydown", handleKeyDown);
+modal.addEventListener("click", handleClose);
 
-function handleKeyDown() {
+function handleKeyDown(e) {
   console.log(e);
-  //   if (!modal.classList.contains("isHidden")) {
   if (e.code === "Escape") {
     modal.classList.add("isHidden");
   }
-  //   }
+}
+function handleClose(e) {
+  // e.preventDefault();
+  console.log(e.target === e.currentTarget);
+  console.log(e.target);
+  console.log(e.currentTarget);
+  if (e.target === e.currenTarget) {
+    modal.classList.add("isHidden");
+  }
 }
