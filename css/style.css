@@ -24,8 +24,8 @@ main {
 
 .postsList {
   width: 75%;
-  /* height: 650px; */
-  /* overflow: auto; */
+  height: 750px;
+  overflow: auto;
   margin: 0 auto;
 
   display: flex;

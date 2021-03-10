@@ -1,8 +1,12 @@
+import refs from "./refs.js";
+const { items } = refs;
+
 const options = {
   root: document.getElementById("list"),
   rootMargin: "50px",
   threshold: 0.5, // handleObserver будет вызвана при 100% пересечении объекта (за которым мы следим) с объектом root
 };
+
 function handleObserver(entries, observer) {
   entries.forEach((entry) => {
     entry.time; // a DOMHightResTimeStamp indicating when the intersection occurred.
